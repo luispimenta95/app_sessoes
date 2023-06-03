@@ -25,19 +25,12 @@ public class Usuario extends AppCompatActivity {
     private static final long MINUTOS = 10;
     private static final long CONTADOR_REGRESSIVO = 1;
     private Button btnLogout;
-
     private long TEMPO_RESTANTE = (MINUTOS *60 *1000);
     private boolean contadorAtivo;
     private  static final String TAG = "LOG";
-
-
     private CountDownTimer contador;
     private  View view;
-
-
     FirebaseUser user = objAuth.getCurrentUser();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,15 +38,8 @@ public class Usuario extends AppCompatActivity {
         TextView nome = findViewById(R.id.nomeUser);
         textoTimer = findViewById(R.id.textoTempo);
         btnLogout = findViewById(R.id.btnLogout);
-
-
-
-
-            iniciarTempoSessao();
+        iniciarTempoSessao();
         nome.setText(user.getUid());
-
-
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
     }
@@ -86,7 +72,6 @@ public class Usuario extends AppCompatActivity {
         int seconds = (int) (TEMPO_RESTANTE / 1000) % 60;
         int minutesInSec = (int) (TEMPO_RESTANTE / 1000);
 
-
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
 
         textoTimer.setText(timeLeftFormatted);
@@ -109,7 +94,6 @@ public class Usuario extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     contadorAtivo = true;
                     contador.start();
-                    Log.d(TAG,user.getUid());
 
                 }
             });
@@ -117,17 +101,14 @@ public class Usuario extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                    logout();
-
                 }
             });
             diaBuilder.show();
         }
         btnLogout.setOnClickListener( view -> {
            logout();
-
         });
     }
-
     private void logout(){
         objAuth.signOut();
         Intent intent = new Intent(Usuario.this, MainActivity.class);
@@ -135,8 +116,4 @@ public class Usuario extends AppCompatActivity {
         finish();
 
     }
-
-
-
-
 }
