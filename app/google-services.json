@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "733863393118",
+    "project_id": "luisdoc-9168c",
+    "storage_bucket": "luisdoc-9168c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733863393118:android:7ac05ecb9772e2848b01cf",
+        "android_client_info": {
+          "package_name": "com.example.luisdoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "733863393118-553pr0tskm4jqns6dvai5tqn00efkk1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQmFzisxjMlGxemFeD3Exinmojslbr6ko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "733863393118-553pr0tskm4jqns6dvai5tqn00efkk1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
