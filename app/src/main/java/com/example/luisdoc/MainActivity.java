@@ -41,16 +41,14 @@ public class MainActivity extends AppCompatActivity {
         if(userLogado!=null){
             Intent intent = new Intent(MainActivity.this, Usuario.class);
             startActivity(intent);
-            Log.d(TAG, "Algum usuário está logado");
             finish();
-        }else{
-            Log.d(TAG, "Nenhum usuário está logado");
         }
         btnLogin.setOnClickListener( view -> {
-            String email = "luisfelipearaujopimenta@gmail.com";
-            String password = "13151319";
-            login(email, password, view);
-
+            String email = inputEmail.getText().toString();
+            String senha = inputSenha.getText().toString();
+            if (validarPreenchimento()){
+                login(email, senha, view);
+            }
         });
     }
     private void login(String email, String password,View view) {
@@ -59,13 +57,27 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Intent intent = new Intent(view.getContext(), Usuario.class);
                         startActivity(intent);
-
-                        // Do something with the logged-in user
                     } else {
-                        // Login failed
-                        Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                Toast.LENGTH_SHORT).show();
+                        exibirMensagem("Login ou senha inválidos !");
+                        inputEmail.setText("");
+                        inputSenha.setText("");
+                        inputEmail.requestFocus();
+
                     }
                 });
+    }
+    private void exibirMensagem(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+    private boolean validarPreenchimento(){
+        boolean preenchido = true;
+        if(inputEmail.getText().toString().isEmpty()
+                || inputSenha.getText().toString().isEmpty()  ){
+            preenchido = false;
+            exibirMensagem("Preencha todos os campos !");
+
+
+        }
+        return preenchido;
     }
 }
