@@ -132,6 +132,8 @@ public class Usuario extends AppCompatActivity {
         objAuth.signOut();
         Intent intent = new Intent(Usuario.this, MainActivity.class);
         startActivity(intent);
+        finish();
+
     }
 
 
